@@ -77,14 +77,16 @@ const InvoiceForm = ({ onFormSubmit }) => {
         </div>
         <div style={{ flex: "1 1 45%", minWidth: "200px" }}>
           <label>Template:</label>
-          <select
-            name="template"
-            value={formData.template}
-            onChange={handleChange}
-          >
-            <option value="detailed">Detailed Invoice</option>
-            <option value="summary">Summary Invoice</option>
-          </select>
+          <div className="select-wrapper">
+            <select
+              name="template"
+              value={formData.template}
+              onChange={handleChange}
+            >
+              <option value="detailed">Detailed Invoice</option>
+              <option value="summary">Summary Invoice</option>
+            </select>
+          </div>
         </div>
       </div>
       <button type="submit">Generate Invoice</button>

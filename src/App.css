@@ -40,6 +40,17 @@ select {
   border: 1px solid grey;
 }
 
+.select-wrapper {
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 8px;
+  select {
+    border: none;
+    padding: 0px;
+    outline: none;
+  }
+}
+
 button {
   padding: 10px 15px;
   background-color: #007bff;

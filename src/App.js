@@ -29,7 +29,7 @@ function App() {
 
       const link = document.createElement("a");
       link.href = url;
-      link.download = "invoice.pdf";
+      link.download = `Invoice-${invoiceData.template}-${invoiceData.clientName}.pdf`;
       document.body.appendChild(link);
       link.click();
 
