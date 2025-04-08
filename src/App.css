@@ -1,5 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
 .App {
-  text-align: center;
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+  display: block;
+}
+
+form div > div {
+  flex: 1;
+  display: block;
+  margin-bottom: 0px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.invoice-preview {
+  margin-top: 40px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+}
+
+.download-pdf {
+  margin-left: 30px;
+}
+
+.template1,
+.template2 {
+  font-size: 14px;
+}
+
+.template1 h1,
+.template2 h2 {
+  margin-top: 0;
+}
+
+.template1 p,
+.template2 div {
+  margin: 5px 0;
 }
 
 .App-logo {
@@ -26,6 +104,13 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.bold {
+  font-weight: bold;
+}
+.section {
+  margin-bottom: 10px;
 }
 
 @keyframes App-logo-spin {

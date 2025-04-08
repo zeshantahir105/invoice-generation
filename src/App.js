@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import InvoiceForm from "./components/InvoiceForm";
+import InvoicePreview from "./components/InvoicePreview";
+import "./App.css";
 
 function App() {
+  const [invoiceData, setInvoiceData] = useState(null);
+
+  const handleFormSubmit = (data) => {
+    setInvoiceData(data);
+  };
+
+  const generatePDF = async () => {
+    try {
+      const response = await fetch("http://localhost:3002/api/generate-pdf", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ invoiceData }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate PDF");
+      }
+
+      const blob = await response.blob(); // 👈 read it as blob
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "invoice.pdf";
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+      alert("There was a problem downloading the invoice.");
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Invoice Generator</h1>
+      <InvoiceForm onFormSubmit={handleFormSubmit} />
+      {invoiceData && (
+        <div>
+          <InvoicePreview data={invoiceData} generatePDF={generatePDF} />
+        </div>
+      )}
     </div>
   );
 }

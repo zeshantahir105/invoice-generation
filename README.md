@@ -29,6 +29,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run serve`
+
+Starts the server for generating PDF invoices.\
+The server runs on [http://localhost:3002](http://localhost:3002) and handles PDF generation requests.
+
+Make sure to run this command in a separate terminal window while developing, as it needs to run alongside the React development server.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
